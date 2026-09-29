@@ -1,6 +1,6 @@
 class Author:
     def __init__(self, name: str, login: str, password: str):
-        self.name = name
+        self._name = name
         self._login = login
         self._password = password
         self._articles = []
