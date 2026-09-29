@@ -6,10 +6,10 @@ class Author:
         self._articles = []
 
     def get_name(self):
-        return self.name
+        return self._name
 
-    def __check_credentials(self, login: str, password: str) -> bool:
-        return self._login == login and self._password == password
+    def get_articles(self):
+        return self._articles
 
     def write_article(self, name_article: str, text_article: str):
         from article import Article
@@ -17,5 +17,5 @@ class Author:
         self._articles.append(article)
         return article
 
-    def get_articles(self):
-        return self._articles
+    def __check_credentials(self, login: str, password: str) -> bool:
+        return self._login == login and self._password == password
