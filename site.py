@@ -10,14 +10,22 @@ class Site:
     def get_name(self):
         return self._name
 
+    def run(self):
+        print(f'Сайт "{self._name}" запущен')
+
+    def down(self):
+        print(f'Сайт "{self._name}" выключен')
+
     def register_author(self, author: Author):
         if author not in self._users:
             self._users.append(author)
-            print(f'Автор {author.name} зарегистрирован на сайте')
+            
+            author_name = author.get_name()
+            print(f'Автор {author_name} зарегистрирован на сайте')
 
     def login_author(self, login: str, password: str) -> Author | None:
         for author in self._users:
-            if author._check_credentials(login, password):
+            if author.__check_credentials(login, password):
                 print(f'Автор {author.name} успешно вошёл на сайт')
                 return author
         print('Неверный логин или пароль')
@@ -31,13 +39,7 @@ class Site:
         self._articles[name_article] = article
         article.upload_to_site(self)
 
-    def run(self):
-        print(f'Сайт "{self._name}" запущен')
-
-    def down(self):
-        print(f'Сайт "{self._name}" выключен')
-
-    def show_articles(self):
+    def get_articles(self):
         print(f'\nСтатьи на сайте "{self._name}":')
         for title in self._articles:
             article = self._articles[title]
