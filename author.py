@@ -8,7 +8,7 @@ class Author:
     def get_name(self):
         return self.name
 
-    def _check_credentials(self, login: str, password: str) -> bool:
+    def __check_credentials(self, login: str, password: str) -> bool:
         return self._login == login and self._password == password
 
     def write_article(self, name_article: str, text_article: str):
