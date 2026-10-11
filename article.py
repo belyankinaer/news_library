@@ -10,8 +10,12 @@ class Article:
     def get_name(self):
         return self._name
 
-    def get_author(self):
-        return self._author
+    def get_author_name(self):
+        if self._author:
+            author_name = self._author.get_name()
+        else:
+            author_name = ""
+        return author_name
 
     def get_site(self):
         return self._site
